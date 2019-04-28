@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fSB-43-BTq">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--Course ListVC-->
         <scene sceneID="Tzc-Rd-0Gd">
             <objects>
-                <viewController storyboardIdentifier="StudentView" id="fSB-43-BTq" customClass="CourseListVC" customModule="Better_Hours" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fSB-43-BTq" customClass="CourseListVC" customModule="swiftCoursFinalProj" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gxx-mX-fiW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,9 +22,17 @@
                                 <rect key="frame" x="0.0" y="818" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Courses" id="3xh-XN-CSI"/>
+                                    <barButtonItem title="Sign Out" id="3xh-XN-CSI">
+                                        <connections>
+                                            <action selector="signOutPressed:" destination="fSB-43-BTq" id="4Es-k5-J1X"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="p9f-92-1RT"/>
-                                    <barButtonItem title="Calendar" id="vQr-gF-4st"/>
+                                    <barButtonItem systemItem="add" id="vQr-gF-4st">
+                                        <connections>
+                                            <segue destination="6dx-ji-2bx" kind="presentation" identifier="AddCourse" id="k1T-qG-y2b"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                                 <color key="tintColor" red="0.69803921570000005" green="0.61568627450000002" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="barTintColor" red="0.26274509800000001" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -55,17 +63,9 @@
                         <color key="backgroundColor" red="0.26274509800000001" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="D9e-8Y-pVv"/>
                     </view>
-                    <navigationItem key="navigationItem" id="OIh-XZ-mFb">
-                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="XUX-vs-sfM">
-                            <color key="tintColor" red="0.69803921570000005" green="0.61568627450000002" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="R7C-yB-a1W">
-                            <color key="tintColor" red="0.69803921570000005" green="0.61568627450000002" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="OIh-XZ-mFb"/>
                     <connections>
                         <outlet property="tableView" destination="G6p-Xg-ll2" id="SPS-1T-eMv"/>
-                        <segue destination="6dx-ji-2bx" kind="presentation" identifier="AddCourse" id="ASL-ZE-ql3"/>
                         <segue destination="eYJ-RF-YmQ" kind="show" identifier="ShowCourse" id="Gmn-c5-KTV"/>
                     </connections>
                 </viewController>
@@ -76,7 +76,7 @@
         <!--Course DetailVC-->
         <scene sceneID="BwS-B5-2Yv">
             <objects>
-                <viewController id="eYJ-RF-YmQ" customClass="CourseDetailVC" customModule="Better_Hours" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="eYJ-RF-YmQ" customClass="CourseDetailVC" customModule="swiftCoursFinalProj" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WBk-ca-bab">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,7 +138,7 @@
         <!--Hour DetailVC-->
         <scene sceneID="Et4-7r-vrW">
             <objects>
-                <viewController id="6mV-jG-7Rz" customClass="HourDetailVC" customModule="Better_Hours" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6mV-jG-7Rz" customClass="HourDetailVC" customModule="swiftCoursFinalProj" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UQt-8r-u9f">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

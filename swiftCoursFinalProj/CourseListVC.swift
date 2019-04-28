@@ -15,7 +15,6 @@ import GoogleSignIn // added, replacing the line below
 class CourseListVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var sortSegmentedControl: UISegmentedControl!
     
     var courses: Courses!
     var authUI: FUIAuth!
@@ -92,6 +91,7 @@ class CourseListVC: UIViewController {
             print("*** ERROR: Couldn't sign out")
         }
     }
+
     
 }
 
