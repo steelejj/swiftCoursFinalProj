@@ -11,16 +11,21 @@ import Firebase
 
 class HoursTableViewController: UITableViewController {
     
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var meetingLocationLabel: UILabel!
-    @IBOutlet weak var postedByLabel: UILabel!
-    @IBOutlet weak var reviewTitleField: UITextField!
-    @IBOutlet weak var reviewDateLabel: UILabel!
-    @IBOutlet weak var reviewTextView: UITextView!
+    
     @IBOutlet weak var cancelBarButton: UIBarButtonItem!
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var postedByLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var numberAttendingLabel: UILabel!
+    @IBOutlet weak var meetingLocationLabel: UILabel!
+    @IBOutlet weak var agendaLabel: UILabel!
+    @IBOutlet weak var agendaView: UITextView!
+    @IBOutlet weak var signUpPressed: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
-    @IBOutlet weak var buttonsBackgroundView: UIView!
+    
+    
     
     var course: Course!
     var officeHour: OfficeHour!
@@ -66,13 +71,12 @@ class HoursTableViewController: UITableViewController {
     }
     
     func addBordersToEditableObjects() {
-        reviewTitleField.addBorder(width: 0.5, radius: 5.0, color: .black)
-        reviewTextView.addBorder(width: 0.5, radius: 5.0, color: .black)
-        buttonsBackgroundView.addBorder(width: 0.5, radius: 5.0, color: .black)
+        agendaLabel.addBorder(width: 0.5, radius: 5.0, color: .black)
+        agendaView.addBorder(width: 0.5, radius: 5.0, color: .black)
     }
     
     func enableDisableSaveButton() {
-        if reviewTitleField.text != "" {
+        if agendaLabel.text != "" {
             saveBarButton.isEnabled = true
         } else {
             saveBarButton.isEnabled = false
@@ -80,8 +84,8 @@ class HoursTableViewController: UITableViewController {
     }
     
     func saveThenSegue() {
-        officeHour.name = reviewTitleField.text!
-        officeHour.professorName = reviewTextView.text!
+        officeHour.name = agendaLabel.text!
+        officeHour.professorName = agendaView.text!
         officeHour.saveData(course: course) { (success) in
             if success {
                 self.leaveViewController()

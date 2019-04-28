@@ -14,8 +14,8 @@ class CourseDetailVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var cancelBarButton: UIBarButtonItem!
-    @IBOutlet weak var meetingLocation: UILabel!
-    @IBOutlet weak var agendaField: UITextField!
+//    @IBOutlet weak var meetingLocation: UILabel!
+//    @IBOutlet weak var agendaField: UITextField!
     
     var course: Course!
     var officeHours: OfficeHours!
@@ -36,7 +36,7 @@ class CourseDetailVC: UIViewController {
             
             // editable fields should have a border around them
             nameField.addBorder(width: 0.5, radius: 5.0, color: .black)
-            meetingLocation.addBorder(width: 0.5, radius: 5.0, color: .black)
+//            meetingLocation.addBorder(width: 0.5, radius: 5.0, color: .black)
         } else { // Viewing an existing spot, so editing should be disabled
             // disable text editing
             nameField.isEnabled = false
@@ -58,9 +58,9 @@ class CourseDetailVC: UIViewController {
             self.tableView.reloadData()
             if self.officeHours.officeHourArray.count > 0 {
                 let hour = self.officeHours.officeHourArray
-                self.meetingLocation.text = "test"
+//                self.meetingLocation.text = "test"
             } else {
-                self.meetingLocation.text = "-.-"
+//                self.meetingLocation.text = "-.-"
             }
         }
         
@@ -90,9 +90,9 @@ class CourseDetailVC: UIViewController {
         nameField.backgroundColor = UIColor.clear
         nameField.isEnabled = false
         nameField.noBorder()
-        agendaField.backgroundColor = UIColor.clear
-        agendaField.isEnabled = false
-        agendaField.noBorder()
+//        agendaField.backgroundColor = UIColor.clear
+//        agendaField.isEnabled = false
+//        agendaField.noBorder()
     }
     
     func saveCancelAlert(title: String, message: String, segueIdentifier: String) {
@@ -125,7 +125,7 @@ class CourseDetailVC: UIViewController {
     
     func updateUserInterface() {
         nameField.text = course.name
-        meetingLocation.text = course.officeLocation
+//        meetingLocation.text = course.officeLocation
     }
     
     
@@ -160,7 +160,7 @@ class CourseDetailVC: UIViewController {
     @IBAction func textFieldReturnPressed(_ sender: UITextField) {
         sender.resignFirstResponder()
         course.name = nameField.text!
-        course.officeLocation = meetingLocation.text!
+//        course.officeLocation = meetingLocation.text!
         updateUserInterface()
     }
     
@@ -182,7 +182,7 @@ class CourseDetailVC: UIViewController {
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         course.name = nameField.text!
-        course.officeLocation = meetingLocation.text!
+//        course.officeLocation = meetingLocation.text!
         course.saveData { success in
             if success {
                 self.leaveViewController()

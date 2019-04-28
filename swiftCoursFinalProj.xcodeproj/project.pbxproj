@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA035FA1227535EA00C94E65 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA035FA0227535E900C94E65 /* GoogleService-Info.plist */; };
 		DA035FA3227549C200C94E65 /* ViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA035FA2227549C200C94E65 /* ViewControllerTest.swift */; };
+		DAD1C2A7227643E700049D08 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD1C2A6227643E700049D08 /* UserTableViewCell.swift */; };
 		DADFBAF222752ACC0058386A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFBAF122752ACC0058386A /* AppDelegate.swift */; };
 		DADFBAF422752ACC0058386A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFBAF322752ACC0058386A /* ViewController.swift */; };
 		DADFBAF722752ACC0058386A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DADFBAF522752ACC0058386A /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		D1B985869CC1F980408D29D1 /* Pods-swiftCoursFinalProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftCoursFinalProj.release.xcconfig"; path = "Target Support Files/Pods-swiftCoursFinalProj/Pods-swiftCoursFinalProj.release.xcconfig"; sourceTree = "<group>"; };
 		DA035FA0227535E900C94E65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		DA035FA2227549C200C94E65 /* ViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTest.swift; sourceTree = "<group>"; };
+		DAD1C2A6227643E700049D08 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		DADFBAEE22752ACC0058386A /* swiftCoursFinalProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftCoursFinalProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DADFBAF122752ACC0058386A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DADFBAF322752ACC0058386A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				DADFBB3922752D350058386A /* BHUserTableViewCell.swift */,
 				DADFBB3B22752D590058386A /* UIView+addBorder.swift */,
 				DADFBAF322752ACC0058386A /* ViewController.swift */,
+				DAD1C2A6227643E700049D08 /* UserTableViewCell.swift */,
 				DA035FA2227549C200C94E65 /* ViewControllerTest.swift */,
 				DADFBAF522752ACC0058386A /* Main.storyboard */,
 				DADFBAF822752ACD0058386A /* Assets.xcassets */,
@@ -438,6 +441,7 @@
 				DADFBB3422752CA70058386A /* HoursTableViewController.swift in Sources */,
 				DADFBB2622752BEB0058386A /* OfficeHours.swift in Sources */,
 				DADFBB3C22752D590058386A /* UIView+addBorder.swift in Sources */,
+				DAD1C2A7227643E700049D08 /* UserTableViewCell.swift in Sources */,
 				DADFBB3022752C5D0058386A /* CourseDetailVC.swift in Sources */,
 				DADFBB2C22752C1A0058386A /* CourseListVC.swift in Sources */,
 				DADFBB2422752BE20058386A /* OfficeHour.swift in Sources */,

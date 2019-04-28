@@ -9,12 +9,38 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var tableView: UITableView!
+    var bHUsers: BHUsers!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        bHUsers = BHUsers()
     }
-
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        bHUsers.loadData {
+            self.tableView.reloadData()
+        }
+    }
 }
 
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return bHUsers.bHUserArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserTableViewCell
+        cell.bHUser = bHUsers.bHUserArray[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+}
