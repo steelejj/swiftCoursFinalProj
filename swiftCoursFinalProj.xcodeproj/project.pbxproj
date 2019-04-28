@@ -14,6 +14,21 @@
 		DADFBAFC22752ACD0058386A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DADFBAFA22752ACD0058386A /* LaunchScreen.storyboard */; };
 		DADFBB0722752ACD0058386A /* swiftCoursFinalProjTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFBB0622752ACD0058386A /* swiftCoursFinalProjTests.swift */; };
 		DADFBB1222752ACD0058386A /* swiftCoursFinalProjUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFBB1122752ACD0058386A /* swiftCoursFinalProjUITests.swift */; };
+		DADFBB2022752BB10058386A /* BHUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFBB1F22752BB10058386A /* BHUser.swift */; };
+		DADFBB2222752BD70058386A /* BHUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFBB2122752BD70058386A /* BHUsers.swift */; };
+		DADFBB2422752BE20058386A /* OfficeHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFBB2322752BE20058386A /* OfficeHour.swift */; };
+		DADFBB2622752BEB0058386A /* OfficeHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFBB2522752BEA0058386A /* OfficeHours.swift */; };
+		DADFBB2822752BF70058386A /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFBB2722752BF70058386A /* Course.swift */; };
+		DADFBB2A22752BFF0058386A /* Courses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFBB2922752BFF0058386A /* Courses.swift */; };
+		DADFBB2C22752C1A0058386A /* CourseListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFBB2B22752C1A0058386A /* CourseListVC.swift */; };
+		DADFBB2E22752C400058386A /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFBB2D22752C400058386A /* CourseTableViewCell.swift */; };
+		DADFBB3022752C5D0058386A /* CourseDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFBB2F22752C5D0058386A /* CourseDetailVC.swift */; };
+		DADFBB3222752C8A0058386A /* HoursTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFBB3122752C8A0058386A /* HoursTableViewCell.swift */; };
+		DADFBB3422752CA70058386A /* HoursTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFBB3322752CA70058386A /* HoursTableViewController.swift */; };
+		DADFBB3622752CCA0058386A /* HoursDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFBB3522752CCA0058386A /* HoursDetailVC.swift */; };
+		DADFBB3822752D140058386A /* BHUserListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFBB3722752D140058386A /* BHUserListVC.swift */; };
+		DADFBB3A22752D350058386A /* BHUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFBB3922752D350058386A /* BHUserTableViewCell.swift */; };
+		DADFBB3C22752D590058386A /* UIView+addBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFBB3B22752D590058386A /* UIView+addBorder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +62,21 @@
 		DADFBB0D22752ACD0058386A /* swiftCoursFinalProjUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swiftCoursFinalProjUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DADFBB1122752ACD0058386A /* swiftCoursFinalProjUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftCoursFinalProjUITests.swift; sourceTree = "<group>"; };
 		DADFBB1322752ACD0058386A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DADFBB1F22752BB10058386A /* BHUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHUser.swift; sourceTree = "<group>"; };
+		DADFBB2122752BD70058386A /* BHUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHUsers.swift; sourceTree = "<group>"; };
+		DADFBB2322752BE20058386A /* OfficeHour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeHour.swift; sourceTree = "<group>"; };
+		DADFBB2522752BEA0058386A /* OfficeHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeHours.swift; sourceTree = "<group>"; };
+		DADFBB2722752BF70058386A /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		DADFBB2922752BFF0058386A /* Courses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Courses.swift; sourceTree = "<group>"; };
+		DADFBB2B22752C1A0058386A /* CourseListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListVC.swift; sourceTree = "<group>"; };
+		DADFBB2D22752C400058386A /* CourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTableViewCell.swift; sourceTree = "<group>"; };
+		DADFBB2F22752C5D0058386A /* CourseDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailVC.swift; sourceTree = "<group>"; };
+		DADFBB3122752C8A0058386A /* HoursTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoursTableViewCell.swift; sourceTree = "<group>"; };
+		DADFBB3322752CA70058386A /* HoursTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoursTableViewController.swift; sourceTree = "<group>"; };
+		DADFBB3522752CCA0058386A /* HoursDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoursDetailVC.swift; sourceTree = "<group>"; };
+		DADFBB3722752D140058386A /* BHUserListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHUserListVC.swift; sourceTree = "<group>"; };
+		DADFBB3922752D350058386A /* BHUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHUserTableViewCell.swift; sourceTree = "<group>"; };
+		DADFBB3B22752D590058386A /* UIView+addBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addBorder.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +128,21 @@
 			isa = PBXGroup;
 			children = (
 				DADFBAF122752ACC0058386A /* AppDelegate.swift */,
+				DADFBB1F22752BB10058386A /* BHUser.swift */,
+				DADFBB2122752BD70058386A /* BHUsers.swift */,
+				DADFBB2322752BE20058386A /* OfficeHour.swift */,
+				DADFBB2522752BEA0058386A /* OfficeHours.swift */,
+				DADFBB2722752BF70058386A /* Course.swift */,
+				DADFBB2922752BFF0058386A /* Courses.swift */,
+				DADFBB2B22752C1A0058386A /* CourseListVC.swift */,
+				DADFBB2D22752C400058386A /* CourseTableViewCell.swift */,
+				DADFBB2F22752C5D0058386A /* CourseDetailVC.swift */,
+				DADFBB3122752C8A0058386A /* HoursTableViewCell.swift */,
+				DADFBB3322752CA70058386A /* HoursTableViewController.swift */,
+				DADFBB3522752CCA0058386A /* HoursDetailVC.swift */,
+				DADFBB3722752D140058386A /* BHUserListVC.swift */,
+				DADFBB3922752D350058386A /* BHUserTableViewCell.swift */,
+				DADFBB3B22752D590058386A /* UIView+addBorder.swift */,
 				DADFBAF322752ACC0058386A /* ViewController.swift */,
 				DADFBAF522752ACC0058386A /* Main.storyboard */,
 				DADFBAF822752ACD0058386A /* Assets.xcassets */,
@@ -256,8 +301,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DADFBB3A22752D350058386A /* BHUserTableViewCell.swift in Sources */,
+				DADFBB2222752BD70058386A /* BHUsers.swift in Sources */,
+				DADFBB2822752BF70058386A /* Course.swift in Sources */,
 				DADFBAF422752ACC0058386A /* ViewController.swift in Sources */,
 				DADFBAF222752ACC0058386A /* AppDelegate.swift in Sources */,
+				DADFBB2E22752C400058386A /* CourseTableViewCell.swift in Sources */,
+				DADFBB3622752CCA0058386A /* HoursDetailVC.swift in Sources */,
+				DADFBB2A22752BFF0058386A /* Courses.swift in Sources */,
+				DADFBB3422752CA70058386A /* HoursTableViewController.swift in Sources */,
+				DADFBB2622752BEB0058386A /* OfficeHours.swift in Sources */,
+				DADFBB3C22752D590058386A /* UIView+addBorder.swift in Sources */,
+				DADFBB3022752C5D0058386A /* CourseDetailVC.swift in Sources */,
+				DADFBB2C22752C1A0058386A /* CourseListVC.swift in Sources */,
+				DADFBB2422752BE20058386A /* OfficeHour.swift in Sources */,
+				DADFBB2022752BB10058386A /* BHUser.swift in Sources */,
+				DADFBB3222752C8A0058386A /* HoursTableViewCell.swift in Sources */,
+				DADFBB3822752D140058386A /* BHUserListVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
