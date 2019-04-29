@@ -60,8 +60,12 @@ class HoursTableViewController: UITableViewController {
     
     func updateUserInterface() {
         nameLabel.text = course.name
-        meetingLocationLabel.text = officeHour.meetingLocation
+        postedByLabel.text = course.professorName
+        meetingLocationLabel.text = course.officeLocation
+        dateLabel.text = officeHour.date
+        timeLabel.text = officeHour.time
         numberAttendingLabel.text = String(officeHour.roster.count)
+        agendaView.text = officeHour.agenda
         
         
         enableDisableSaveButton()
@@ -97,7 +101,7 @@ class HoursTableViewController: UITableViewController {
     
     func saveThenSegue() {
         officeHour.name = nameLabel.text!
-//        officeHour.professorName =
+        officeHour.professorName = postedByLabel.text!
         officeHour.meetingLocation = meetingLocationLabel.text!
         officeHour.date = dateLabel.text!
         officeHour.time = timeLabel.text!
