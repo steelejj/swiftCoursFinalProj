@@ -18,7 +18,7 @@ class CourseDetailVC: UIViewController {
 //    @IBOutlet weak var agendaField: UITextField!
     
     var course: Course!
-    var officeHours: OfficeHours!
+    var officeHours = OfficeHours()
     
     override func viewDidLoad() {
         super.viewDidLoad()
