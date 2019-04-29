@@ -27,7 +27,6 @@ class CourseDetailVC: UIViewController {
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
         
-        // mapView.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -57,10 +56,10 @@ class CourseDetailVC: UIViewController {
         officeHours.loadData(course: course) {
             self.tableView.reloadData()
             if self.officeHours.officeHourArray.count > 0 {
-                let hour = self.officeHours.officeHourArray
-//                self.meetingLocation.text = "test"
+                let test = self.officeHours.officeHourArray.count
+                self.nameField.text = String(test)
             } else {
-//                self.meetingLocation.text = "-.-"
+                self.nameField.text = "-.-"
             }
         }
         
@@ -137,21 +136,7 @@ class CourseDetailVC: UIViewController {
             navigationController?.popViewController(animated: true)
         }
     }
-    
-    //    func cameraOrLibraryAlert() {
-    //        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-    //        let cameraAction = UIAlertAction(title: "Camera", style: .default) { _ in
-    //            self.accessCamera()
-    //        }
-    //        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { _ in
-    //            self.accessLibrary()
-    //        }
-    //        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-    //        alertController.addAction(cameraAction)
-    //        alertController.addAction(photoLibraryAction)
-    //        alertController.addAction(cancelAction)
-    //        present(alertController, animated: true, completion: nil)
-    //    }
+
     
     @IBAction func textFieldEditingChanged(_ sender: UITextField) {
         saveBarButton.isEnabled = !(nameField.text == "")
@@ -163,22 +148,7 @@ class CourseDetailVC: UIViewController {
 //        course.officeLocation = meetingLocation.text!
         updateUserInterface()
     }
-    
-    @IBAction func photoButtonPressed(_ sender: UIButton) {
-        if course.documentID == "" {
-            saveCancelAlert(title: "This Venue Has Not Been Saved", message: "You must save theis venue before you can add a photo.", segueIdentifier: "AddPhoto")
-        } else {
-            //            cameraOrLibraryAlert()
-        }
-    }
-    
-    //    @IBAction func reviewButtonPressed(_ sender: UIButton) {
-    //        if spot.documentID == "" {
-    //            saveCancelAlert(title: "This Venue Has Not Been Saved", message: "You must save theis venue before you can review it.", segueIdentifier: "AddReview")
-    //        } else {
-    //            performSegue(withIdentifier: "AddReview", sender: nil)
-    //        }
-    //    }
+
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         course.name = nameField.text!
@@ -192,47 +162,11 @@ class CourseDetailVC: UIViewController {
         }
     }
     
-    //    @IBAction func lookupPlacePressed(_ sender: UIBarButtonItem) {
-    //        let autocompleteController = GMSAutocompleteViewController()
-    //        autocompleteController.delegate = self
-    //        present(autocompleteController, animated: true, completion: nil)
-    //    }
     
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
         leaveViewController()
     }
 }
-
-//extension SpotDetailViewController: GMSAutocompleteViewControllerDelegate {
-//
-//    // Handle the user's selection.
-//    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-//        spot.name = place.name
-//        spot.address = place.formattedAddress ?? ""
-//        spot.coordinate = place.coordinate
-//        dismiss(animated: true, completion: nil)
-//        updateUserInterface()
-//    }
-//
-//    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-//        // TODO: handle the error.
-//        print("Error: ", error.localizedDescription)
-//    }
-//
-//    // User canceled the operation.
-//    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-//        dismiss(animated: true, completion: nil)
-//    }
-//
-//    // Turn the network activity indicator on and off again.
-//    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-//        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-//    }
-//
-//    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-//        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-//    }
-//}
 
 
 
@@ -247,49 +181,3 @@ extension CourseDetailVC: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 }
-
-//extension CourseDetailVC: UICollectionViewDelegate, UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return photos.photoArray.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! SpotPhotosCollectionViewCell
-//        cell.photo = photos.photoArray[indexPath.row]
-//        return cell
-//    }
-//}
-
-//extension SpotDetailViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-//
-//    func imagePickerController(_ picker: UIImagePickerController,
-//                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//
-//        let photo = Photo()
-//        photo.image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-//
-//        dismiss(animated: true) {
-//            photo.saveData(spot: self.spot) { (success) in
-//            }
-//        }
-//    }
-//
-//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        dismiss(animated: true, completion: nil)
-//    }
-//
-//    func accessLibrary() {
-//        imagePicker.sourceType = .photoLibrary
-//        present(imagePicker, animated: true, completion: nil)
-//    }
-//
-//    func accessCamera() {
-//        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-//            imagePicker.sourceType = .camera
-//            present(imagePicker, animated: true, completion: nil)
-//        } else {
-//            showAlert(title: "Camera Not Available", message: "There is no camera available on this device.")
-//        }
-//    }
-//}
-

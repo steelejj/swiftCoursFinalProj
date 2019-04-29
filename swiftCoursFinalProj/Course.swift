@@ -76,7 +76,7 @@ class Course: NSObject {
             var ref: DocumentReference? = nil
             ref = db.collection("courses").addDocument(data: dataToSave) {error in
                 if let error = error {
-                    print("error updating document \(self.documentID) \(error.localizedDescription)")
+                    print("error updating document \(ref?.documentID) \(error.localizedDescription)")
                     return completion(false)
                 } else {
                     completion(true)

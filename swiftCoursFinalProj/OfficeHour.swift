@@ -19,6 +19,7 @@ class OfficeHour: NSObject {
     var roster: [String]
     var postingUserID: String
     var password: String
+    var courseDocumentID: String
     var documentID: String
     
     var title: String? {
@@ -28,10 +29,10 @@ class OfficeHour: NSObject {
         return professorName
     }
     var dictionary: [String: Any] {
-        return ["name": name, "professorName": professorName, "date": date, "time": time, "meetingLocation": meetingLocation, "roster":  roster, "password": password, "postingUserID": postingUserID, "documentID": documentID]
+        return ["name": name, "professorName": professorName, "date": date, "time": time, "meetingLocation": meetingLocation, "roster":  roster, "password": password, "postingUserID": postingUserID, "courseDocumentID": courseDocumentID, "documentID": documentID]
     }
     
-    init(name: String, professorName: String, date: String, time: String, meetingLocation: String, roster: [String], password: String, postingUserID: String, documentID: String) {
+    init(name: String, professorName: String, date: String, time: String, meetingLocation: String, roster: [String], password: String, postingUserID: String, courseDocumentID: String, documentID: String) {
         self.name = name
         self.professorName = professorName
         self.date = date
@@ -40,11 +41,8 @@ class OfficeHour: NSObject {
         self.roster = roster
         self.password = password
         self.postingUserID = postingUserID
+        self.courseDocumentID = courseDocumentID
         self.documentID = documentID
-    }
-    
-    convenience override init() {
-        self.init(name: "", professorName: "", date: "", time: "", meetingLocation: "", roster: [""], password: "", postingUserID: "", documentID: "")
     }
     
     convenience init(dictionary: [String: Any]) {
@@ -56,10 +54,17 @@ class OfficeHour: NSObject {
         let roster = dictionary["roster"] as! [String]? ?? [""]
         let password = dictionary["password"] as! String? ?? ""
         let postingUserID = dictionary["postingUserID"] as! String? ?? ""
+        let courseDocumentID = dictionary["courseDocumentID"] as! String? ?? ""
         let documentID = dictionary["documentID"] as! String? ?? ""
-        self.init(name: name, professorName: professorName, date: date, time: time, meetingLocation: meetingLocation, roster: roster, password: password, postingUserID: postingUserID, documentID: "")
+        self.init(name: name, professorName: professorName, date: date, time: time, meetingLocation: meetingLocation, roster: roster, password: password, postingUserID: postingUserID, courseDocumentID: courseDocumentID, documentID: "")
     }
     
+    convenience override init() {
+        let currentUserID = Auth.auth().currentUser?.email ?? "Unknown User"
+        self.init(name: "", professorName: "", date: "", time: "", meetingLocation: "", roster: [""], password: "", postingUserID: currentUserID, courseDocumentID: "", documentID: "")
+    }
+    
+
     func saveData(course: Course, completed: @escaping (Bool) -> ()) {
         let db = Firestore.firestore()
         

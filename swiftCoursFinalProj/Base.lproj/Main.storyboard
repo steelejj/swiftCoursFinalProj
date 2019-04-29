@@ -47,14 +47,24 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Zxf-K2-MHH">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Zxf-K2-MHH" customClass="CourseTableViewCell" customModule="swiftCoursFinalProj" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zxf-K2-MHH" id="9WU-bf-vtQ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Course Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mi7-qD-y1Z">
+                                                    <rect key="frame" x="42" y="12" width="105" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="nameLabel" destination="mi7-qD-y1Z" id="mrf-Bg-1qb"/>
                                             <segue destination="eYJ-RF-YmQ" kind="show" identifier="ShowCourse" id="IOm-xP-mfs"/>
                                         </connections>
                                     </tableViewCell>
@@ -102,6 +112,10 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldEditingChanged:" destination="eYJ-RF-YmQ" eventType="editingDidEnd" id="mWC-GM-lVV"/>
+                                    <action selector="textFieldReturnPressed:" destination="eYJ-RF-YmQ" eventType="editingDidEnd" id="fxF-qA-w3y"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Professor Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="juj-uZ-EDP">
                                 <rect key="frame" x="20" y="126" width="374" height="30"/>
@@ -115,13 +129,25 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HourCell" id="mKp-YY-CsB">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HourCell" id="mKp-YY-CsB" customClass="HoursTableViewCell" customModule="swiftCoursFinalProj" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mKp-YY-CsB" id="3qc-im-vs1">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNt-Um-PCQ">
+                                                    <rect key="frame" x="20" y="0.0" width="35" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="meetingLocationLabel" destination="JNt-Um-PCQ" id="T4X-Ag-W4j"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -132,15 +158,23 @@
                     <navigationItem key="navigationItem" id="Dgm-bG-0oY">
                         <leftBarButtonItems>
                             <barButtonItem title="&lt; Back" id="73y-Hc-E4l"/>
-                            <barButtonItem title="Cancel" id="ew8-Dn-xdj"/>
+                            <barButtonItem title="Cancel" id="ew8-Dn-xdj">
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="eYJ-RF-YmQ" id="MrN-Sb-VgL"/>
+                                </connections>
+                            </barButtonItem>
                         </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="ftA-WJ-lRB"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="ftA-WJ-lRB">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="eYJ-RF-YmQ" id="Mag-1o-5mQ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cancelBarButton" destination="ew8-Dn-xdj" id="5Cd-T3-0b3"/>
                         <outlet property="nameField" destination="Q2w-iv-d0h" id="uVU-Wd-Aiu"/>
                         <outlet property="saveBarButton" destination="ftA-WJ-lRB" id="7Bm-UI-IQT"/>
-                        <outlet property="tableView" destination="OrW-LC-oi8" id="heL-0w-XkN"/>
+                        <outlet property="tableView" destination="OrW-LC-oi8" id="S5g-hL-BFl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dZJ-M4-IHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -331,7 +365,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="raV-nF-3Qb" customClass="SnackUserTableViewCell" customModule="Snacktacular" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell2" rowHeight="80" id="raV-nF-3Qb" customClass="SnackUserTableViewCell" customModule="Snacktacular" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="raV-nF-3Qb" id="mC1-Bp-DjJ">
