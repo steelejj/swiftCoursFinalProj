@@ -11,21 +11,14 @@ import UIKit
 class CourseTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
-
+    @IBOutlet weak var professorNameLabel: UILabel!
+    
     var date: String!
     //    date = ""
     var course: Course! {
         didSet {
             nameLabel.text = course.name
-            
-            // calculate distance here
-            guard let date = date else {
-                return
-            }
-            //            let distanceInMeters = currentLocation.distance(from: spot.location)
-            //            let distanceString = "Distance: \( (distanceInMeters * 0.00062137).roundTo(places: 2) ) miles"
-            //            distanceLabel.text = distanceString
-            //            ratingLabel.text = "Avg. Rating: \(spot.averageRating.roundTo(places: 1))"
+            professorNameLabel.text = course.professorName
         }
     }
 }

@@ -10,11 +10,16 @@ import UIKit
 
 class HoursTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var meetingLocationLabel: UILabel!
     
     var officeHour: OfficeHour! {
         didSet {
+            dateLabel.text = officeHour.date
+            timeLabel.text = officeHour.time
             meetingLocationLabel.text = officeHour.meetingLocation
+            
             //            reviewTextLabel.text = officeHour.text
         }
     }

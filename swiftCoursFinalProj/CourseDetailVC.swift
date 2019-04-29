@@ -7,19 +7,23 @@
 //
 
 import UIKit
+import FirebaseUI
 
 class CourseDetailVC: UIViewController {
     
     @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var professorNameField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var cancelBarButton: UIBarButtonItem!
-//    @IBOutlet weak var meetingLocation: UILabel!
-//    @IBOutlet weak var agendaField: UITextField!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var officeLocationLabel: UITextField!
     
     var course: Course!
     var officeHours = OfficeHours()
-    
+    let user = Auth.auth().currentUser!.email ?? ""
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // hide keyboard if we tap outside of a field
@@ -32,21 +36,28 @@ class CourseDetailVC: UIViewController {
         
         if course == nil { // We are adding a new record, fields should be editable
             course = Course()
+//            addButton.text = search.
             
             // editable fields should have a border around them
             nameField.addBorder(width: 0.5, radius: 5.0, color: .black)
-//            meetingLocation.addBorder(width: 0.5, radius: 5.0, color: .black)
+//            professorNameField.text = user.displayName
         } else { // Viewing an existing spot, so editing should be disabled
             // disable text editing
             nameField.isEnabled = false
             nameField.backgroundColor = UIColor.clear
-            //            addressField.backgroundColor = UIColor.white
-            // "Save" and "Cancel" buttons should be hidden
-            saveBarButton.title = ""
-            cancelBarButton.title = ""
+            professorNameField.isEnabled = false
+            professorNameField.backgroundColor = UIColor.clear
+            officeLocationLabel.isEnabled = false
+            officeLocationLabel.backgroundColor = UIColor.clear
+
+            saveBarButton.title = "Edit"
+            cancelBarButton.title = "Back"
+//            addButton.isHidden = true
             // Hide Toolbar so that "Lookup Place" isn't available
             navigationController?.setToolbarHidden(true, animated: true)
         }
+        
+
         
     }
     
@@ -54,12 +65,10 @@ class CourseDetailVC: UIViewController {
         super.viewWillAppear(animated)
             officeHours.loadData(course: course) {
             self.tableView.reloadData()
-            if self.officeHours.officeHourArray.count > 0 {
-                let test = self.officeHours.officeHourArray.count
-                self.nameField.text = String(test)
-            } else {
-                self.nameField.text = "-.-"
-            }
+                self.nameField.text = self.course.name
+                self.professorNameField.text = self.course.professorName
+                self.officeLocationLabel.text = self.course.officeLocation
+                
         }
         
     }
@@ -77,20 +86,20 @@ class CourseDetailVC: UIViewController {
         case "ShowOfficeHour" :
             let destination = segue.destination as! HoursTableViewController
             destination.course = course
+            print(course)
             let selectedIndexPath = tableView.indexPathForSelectedRow!
             destination.officeHour = officeHours.officeHourArray[selectedIndexPath.row]
         default:
-            print("*** ERROR: Did not have a segue in SpotDetailViewController prepare(for segue:)")
+            print(course)
+            print("*** ERROR: Did not have a segue in CourseDetailVC prepare(for segue:)")
         }
     }
     
     func disableTextEditing() {
         nameField.backgroundColor = UIColor.clear
         nameField.isEnabled = false
+        professorNameField.isEnabled = false
         nameField.noBorder()
-//        agendaField.backgroundColor = UIColor.clear
-//        agendaField.isEnabled = false
-//        agendaField.noBorder()
     }
     
     func saveCancelAlert(title: String, message: String, segueIdentifier: String) {
@@ -101,10 +110,10 @@ class CourseDetailVC: UIViewController {
                 self.cancelBarButton.title = ""
                 self.navigationController?.setToolbarHidden(true, animated: true)
                 self.disableTextEditing()
-                if segueIdentifier == "AddReview" {
+                if segueIdentifier == "AddOfficeHour" {
                     self.performSegue(withIdentifier: segueIdentifier, sender: nil)
                 } else {
-                    //                    self.cameraOrLibraryAlert()
+                    //  
                 }
             }
         }
@@ -123,7 +132,7 @@ class CourseDetailVC: UIViewController {
     
     func updateUserInterface() {
         nameField.text = course.name
-//        meetingLocation.text = course.officeLocation
+        officeLocationLabel.text = course.officeLocation
     }
     
     
@@ -144,13 +153,15 @@ class CourseDetailVC: UIViewController {
     @IBAction func textFieldReturnPressed(_ sender: UITextField) {
         sender.resignFirstResponder()
         course.name = nameField.text!
-//        course.officeLocation = meetingLocation.text!
         updateUserInterface()
     }
 
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         course.name = nameField.text!
+        course.professorName = professorNameField.text!
+        course.officeLocation = officeLocationLabel.text!
+        course.postingUserID = user
         course.saveData { success in
             if success {
                 self.leaveViewController()
@@ -165,6 +176,8 @@ class CourseDetailVC: UIViewController {
         leaveViewController()
     }
 }
+
+
 
 
 

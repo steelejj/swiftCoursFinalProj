@@ -14,23 +14,25 @@ class HoursTableViewController: UITableViewController {
     
     @IBOutlet weak var cancelBarButton: UIBarButtonItem!
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var postedByLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var nameLabel: UITextField!
+    @IBOutlet weak var postedByLabel: UITextField!
+    @IBOutlet weak var dateLabel: UITextField!
+    @IBOutlet weak var timeLabel: UITextField!
     @IBOutlet weak var numberAttendingLabel: UILabel!
-    @IBOutlet weak var meetingLocationLabel: UILabel!
+    @IBOutlet weak var meetingLocationLabel: UITextField!
     @IBOutlet weak var agendaLabel: UILabel!
     @IBOutlet weak var agendaView: UITextView!
-    @IBOutlet weak var signUpPressed: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     
     
     
     var course: Course!
     var officeHour: OfficeHour!
-    let dateFormatter = DateFormatter()
-    var test = "test"
+    let user = Auth.auth().currentUser!.email ?? ""
+
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +42,7 @@ class HoursTableViewController: UITableViewController {
         self.view.addGestureRecognizer(tap)
         
         guard (course) != nil else {
-            print("*** ERROR: did not have a valid Spot in ReviewDetailViewController.")
+            print("*** ERROR: did not have a valid Course.")
             return
         }
         
@@ -51,17 +53,19 @@ class HoursTableViewController: UITableViewController {
         if officeHour == nil {
             officeHour = OfficeHour()
         }
+
         
         updateUserInterface()
     }
     
     func updateUserInterface() {
         nameLabel.text = course.name
-        meetingLocationLabel.text = course.officeLocation
+        meetingLocationLabel.text = officeHour.meetingLocation
+        numberAttendingLabel.text = String(officeHour.roster.count)
+        
+        
         enableDisableSaveButton()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-        if officeHour.documentID == "" { // This is a new review
+        if officeHour.documentID == "" { // This is a new hour
             addBordersToEditableObjects()
         } else {
             if officeHour.postingUserID == Auth.auth().currentUser?.email { // This review was posted by current user
@@ -69,9 +73,11 @@ class HoursTableViewController: UITableViewController {
                 saveBarButton.title = "Update"
                 addBordersToEditableObjects()
                 deleteButton.isHidden = false
+                signUpButton.isHidden = true
             } else { // This review was posted by another user
-                cancelBarButton.title = ""
+                cancelBarButton.title = "Back"
                 saveBarButton.title = ""
+                deleteButton.isHidden = true
             }
         }
     }
@@ -90,9 +96,14 @@ class HoursTableViewController: UITableViewController {
     }
     
     func saveThenSegue() {
-        officeHour.name = agendaLabel.text!
-        officeHour.professorName = agendaView.text!
+        officeHour.name = nameLabel.text!
+//        officeHour.professorName =
+        officeHour.meetingLocation = meetingLocationLabel.text!
+        officeHour.date = dateLabel.text!
+        officeHour.time = timeLabel.text!
+        officeHour.agenda = agendaView.text!
         officeHour.saveData(course: course) { (success) in
+            print(success)
             if success {
                 self.leaveViewController()
             } else {
@@ -102,6 +113,7 @@ class HoursTableViewController: UITableViewController {
     }
     
     func leaveViewController() {
+        print("leaving vc")
         let isPresentingInAddMode = presentingViewController is UINavigationController
         if isPresentingInAddMode {
             dismiss(animated: true, completion: nil)
@@ -109,14 +121,7 @@ class HoursTableViewController: UITableViewController {
             navigationController?.popViewController(animated: true)
         }
     }
-    
-    @IBAction func reviewTitleChanged(_ sender: UITextField) {
-        enableDisableSaveButton()
-    }
-    
-    @IBAction func returnTitleDonePressed(_ sender: UITextField) {
-        saveThenSegue()
-    }
+
     
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
         officeHour.deleteData(course: course) { (success) in
@@ -125,6 +130,16 @@ class HoursTableViewController: UITableViewController {
             } else {
                 print("😡 ERROR: Delete unsuccessful")
             }
+        }
+    }
+    
+    @IBAction func signUpPressed(_ sender: UIButton) {
+        if officeHour.roster.contains(user) {
+            if let index = officeHour.roster.index(of:user) {
+                officeHour.roster.remove(at: index)
+            }
+        } else {
+            officeHour.roster.append(user)
         }
     }
     

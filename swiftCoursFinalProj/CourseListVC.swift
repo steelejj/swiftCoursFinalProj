@@ -19,8 +19,6 @@ class CourseListVC: UIViewController {
     var courses: Courses!
     var authUI: FUIAuth!
     var bHUser: BHUser!
-    //    var locationManager: CLLocationManager!
-    //    var currentLocation: CLLocation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
