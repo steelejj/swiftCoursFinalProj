@@ -43,9 +43,15 @@ class HoursTableViewController: UITableViewController {
             print("*** ERROR: did not have a valid Spot in ReviewDetailViewController.")
             return
         }
+        
+        if course == nil {
+            course = Course()
+        }
+        
         if officeHour == nil {
             officeHour = OfficeHour()
         }
+        
         updateUserInterface()
     }
     

@@ -151,7 +151,6 @@ class CourseDetailVC: UIViewController {
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         course.name = nameField.text!
-//        course.officeLocation = meetingLocation.text!
         course.saveData { success in
             if success {
                 self.leaveViewController()

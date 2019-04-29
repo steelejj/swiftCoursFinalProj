@@ -277,8 +277,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="LEw-c9-Pjr">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="DrL-Yj-BtE"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="EDZ-xg-ogI"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="DrL-Yj-BtE">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="U1Q-fR-XHo" id="L6s-Pj-fwL"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="EDZ-xg-ogI">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="U1Q-fR-XHo" id="Ap3-TT-sPM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="agendaLabel" destination="x1n-Nw-j4u" id="wmW-b1-fS8"/>
