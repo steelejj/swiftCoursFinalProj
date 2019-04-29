@@ -14,7 +14,7 @@ class HoursTableViewCell: UITableViewCell {
     
     var officeHour: OfficeHour! {
         didSet {
-            meetingLocationLabel.text = officeHour.title
+            meetingLocationLabel.text = officeHour.meetingLocation
             //            reviewTextLabel.text = officeHour.text
         }
     }

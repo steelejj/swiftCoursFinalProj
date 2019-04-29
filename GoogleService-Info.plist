@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>453792106172-ja6452g6p0eobqlbip1ii2c01o45u8hp.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.453792106172-ja6452g6p0eobqlbip1ii2c01o45u8hp</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCKU-meXehakEPVF9qmuEWXxVl53OR2Mrw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>453792106172</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>jamessteele.swiftCoursFinalProj</string>
+	<key>PROJECT_ID</key>
+	<string>final-swift-project</string>
+	<key>STORAGE_BUCKET</key>
+	<string>final-swift-project.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:453792106172:ios:06c12d1a8ec4ffc6</string>
+	<key>DATABASE_URL</key>
+	<string>https://final-swift-project.firebaseio.com</string>
+</dict>
+</plist>

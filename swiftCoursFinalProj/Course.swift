@@ -52,7 +52,7 @@ class Course: NSObject {
         let postingUserID = dictionary["postingUserID"] as! String? ?? ""
         self.init(name: name, professorName: professorName, officeLocation: officeLocation, roster: roster, password: password, postingUserID: postingUserID, documentID: "")
     }
-    
+
     func saveData(completion: @escaping (Bool) -> ()) {
         let db = Firestore.firestore()
         guard let postingUserID = (Auth.auth().currentUser?.uid) else {
