@@ -27,7 +27,7 @@ class OfficeHours {
                 return completed()
             }
             self.officeHourArray = []
-            // there are querySnapshot!.documents.count documents in the spots snapshot
+            // there are querySnapshot!.documents.count documents in the snapshot
             for document in querySnapshot!.documents {
                 let officeHour = OfficeHour(dictionary: document.data())
                 officeHour.documentID = document.documentID

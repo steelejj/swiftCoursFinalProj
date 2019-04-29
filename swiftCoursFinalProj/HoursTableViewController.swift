@@ -71,6 +71,7 @@ class HoursTableViewController: UITableViewController {
         enableDisableSaveButton()
         if officeHour.documentID == "" { // This is a new hour
             addBordersToEditableObjects()
+            numberAttendingLabel.text = String(0)
         } else {
             if officeHour.postingUserID == Auth.auth().currentUser?.email { // This review was posted by current user
                 self.navigationItem.leftItemsSupplementBackButton = false

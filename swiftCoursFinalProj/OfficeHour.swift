@@ -83,7 +83,7 @@ class OfficeHour: NSObject {
             var ref: DocumentReference? = nil // Let firestore create the new documentID
             ref = db.collection("courses").document(course.documentID).collection("hours").addDocument(data: dataToSave) { error in
                 if let error = error {
-                    print("*** ERROR: creating new document in spot \(course.documentID) for new review documentID \(error.localizedDescription)")
+                    print("*** ERROR: creating new document in course \(course.documentID) for new review documentID \(error.localizedDescription)")
                     completed(false)
                 } else {
                     print("^^^ new document created with ref ID \(ref?.documentID ?? "unknown")")

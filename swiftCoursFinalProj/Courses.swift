@@ -24,7 +24,7 @@ class Courses {
                 return completed()
             }
             self.courseArray = []
-            // there are querySnapshot!.documents.count documents in teh spots snapshot
+            // there are querySnapshot!.documents.count documents in the snapshot
             for document in querySnapshot!.documents {
                 let course = Course(dictionary: document.data())
                 course.documentID = document.documentID

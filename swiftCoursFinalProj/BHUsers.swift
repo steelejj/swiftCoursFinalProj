@@ -24,7 +24,7 @@ class BHUsers {
                 return completed()
             }
             self.bHUserArray = []
-            // there are querySnapshot!.documents.count documents in teh spots snapshot
+            // there are querySnapshot!.documents.count documents in the snapshot
             for document in querySnapshot!.documents {
                 let user = BHUser(dictionary: document.data())
                 user.documentID = document.documentID

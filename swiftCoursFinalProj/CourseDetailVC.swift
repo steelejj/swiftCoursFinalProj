@@ -41,7 +41,7 @@ class CourseDetailVC: UIViewController {
             // editable fields should have a border around them
             nameField.addBorder(width: 0.5, radius: 5.0, color: .black)
 //            professorNameField.text = user.displayName
-        } else { // Viewing an existing spot, so editing should be disabled
+        } else { // Viewing an existing course so editing should be disabled
             // disable text editing
             nameField.isEnabled = false
             nameField.backgroundColor = UIColor.clear

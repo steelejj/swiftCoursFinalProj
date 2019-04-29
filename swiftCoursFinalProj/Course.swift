@@ -92,24 +92,7 @@ class Course: NSObject {
                 print("*** ERROR: failed to get query snapshot of reviews for hoursRef: \(hoursRef.path), error: \(error!.localizedDescription)")
                 return completed()
             }
-            //            var ratingTotal = 0.0
-            //            for document in querySnapshot!.documents { // go through all of the reviews documents
-            //                let courseDictionary = document.data()
-            //                let rating = courseDictionary["rating"] as! Int? ?? 0
-            //                ratingTotal = ratingTotal + Double(rating)
-            //            }
-            ////            self.averageRating = ratingTotal / Double(querySnapshot!.count)
-            ////            self.numberOfReviews = querySnapshot!.count
-            //            let dataToSave = self.dictionary
-            //            let spotRef = db.collection("courses").document(self.documentID)
-            //            spotRef.setData(dataToSave) { error in // save it & check errors
-            //                guard error == nil else {
-            //                    print("*** ERROR: updating document \(self.documentID) in spot after changing averageReview & numberOfReviews, error: \(error!.localizedDescription)")
-            //                    return completed()
-            //                }
-            //                print("^^^ Document updated with ref ID \(self.documentID)")
-            //                completed()
-            //            }
+
         }
     }
     
