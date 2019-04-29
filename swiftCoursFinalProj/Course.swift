@@ -26,7 +26,7 @@ class Course: NSObject {
         return professorName
     }
     var dictionary: [String: Any] {
-        return ["name": name, "professorName": professorName, "officeLocation": officeLocation, "roster":  roster, "password": password, "postingUserID": postingUserID, "documentID": documentID]
+        return ["name": name, "professorName": professorName, "officeLocation": officeLocation, "roster":  roster, "password": password, "postingUserID": postingUserID]
     }
     
     init(name: String, professorName: String, officeLocation: String, roster: [String], password: String, postingUserID: String, documentID: String) {
@@ -50,7 +50,6 @@ class Course: NSObject {
         let roster = dictionary["roster"] as! [String]? ?? [""]
         let password = dictionary["password"] as! String? ?? ""
         let postingUserID = dictionary["postingUserID"] as! String? ?? ""
-        let documentID = dictionary["documentID"] as! String? ?? ""
         self.init(name: name, professorName: professorName, officeLocation: officeLocation, roster: roster, password: password, postingUserID: postingUserID, documentID: "")
     }
     
@@ -76,7 +75,7 @@ class Course: NSObject {
             var ref: DocumentReference? = nil
             ref = db.collection("courses").addDocument(data: dataToSave) {error in
                 if let error = error {
-                    print("error updating document \(ref?.documentID) \(error.localizedDescription)")
+                    print("error updating document \(ref?.documentID ?? "No document found") \(error.localizedDescription)")
                     return completion(false)
                 } else {
                     completion(true)

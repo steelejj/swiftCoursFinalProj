@@ -52,8 +52,7 @@ class CourseDetailVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        officeHours.loadData(course: course) {
+            officeHours.loadData(course: course) {
             self.tableView.reloadData()
             if self.officeHours.officeHourArray.count > 0 {
                 let test = self.officeHours.officeHourArray.count

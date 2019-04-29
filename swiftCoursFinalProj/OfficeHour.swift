@@ -22,14 +22,8 @@ class OfficeHour: NSObject {
     var courseDocumentID: String
     var documentID: String
     
-    var title: String? {
-        return name
-    }
-    var subtitle: String? {
-        return professorName
-    }
     var dictionary: [String: Any] {
-        return ["name": name, "professorName": professorName, "date": date, "time": time, "meetingLocation": meetingLocation, "roster":  roster, "password": password, "postingUserID": postingUserID, "courseDocumentID": courseDocumentID, "documentID": documentID]
+        return ["name": name, "professorName": professorName, "date": date, "time": time, "meetingLocation": meetingLocation, "roster":  roster, "password": password, "postingUserID": postingUserID, "courseDocumentID": courseDocumentID]
     }
     
     init(name: String, professorName: String, date: String, time: String, meetingLocation: String, roster: [String], password: String, postingUserID: String, courseDocumentID: String, documentID: String) {
@@ -55,7 +49,6 @@ class OfficeHour: NSObject {
         let password = dictionary["password"] as! String? ?? ""
         let postingUserID = dictionary["postingUserID"] as! String? ?? ""
         let courseDocumentID = dictionary["courseDocumentID"] as! String? ?? ""
-        let documentID = dictionary["documentID"] as! String? ?? ""
         self.init(name: name, professorName: professorName, date: date, time: time, meetingLocation: meetingLocation, roster: roster, password: password, postingUserID: postingUserID, courseDocumentID: courseDocumentID, documentID: "")
     }
     
