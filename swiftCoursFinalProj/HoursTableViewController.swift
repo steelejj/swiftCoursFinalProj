@@ -154,6 +154,7 @@ class HoursTableViewController: UITableViewController {
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         saveThenSegue()
+        leaveViewController()
     }
     
 }
