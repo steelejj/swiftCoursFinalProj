@@ -36,11 +36,14 @@ class CourseDetailVC: UIViewController {
         
         if course == nil { // We are adding a new record, fields should be editable
             course = Course()
-//            addButton.text = search.
             
             // editable fields should have a border around them
             nameField.addBorder(width: 0.5, radius: 5.0, color: .black)
-//            professorNameField.text = user.displayName
+            professorNameField.addBorder(width: 0.5, radius: 5.0, color: .black)
+            officeLocationLabel.addBorder(width: 0.5, radius: 5.0, color: .black)
+            addButton.isHidden = true
+
+
         } else { // Viewing an existing course so editing should be disabled
             // disable text editing
             nameField.isEnabled = false
@@ -50,9 +53,8 @@ class CourseDetailVC: UIViewController {
             officeLocationLabel.isEnabled = false
             officeLocationLabel.backgroundColor = UIColor.clear
 
-            saveBarButton.title = "Edit"
+            saveBarButton.title = ""
             cancelBarButton.title = "Back"
-//            addButton.isHidden = true
             // Hide Toolbar so that "Lookup Place" isn't available
             navigationController?.setToolbarHidden(true, animated: true)
         }

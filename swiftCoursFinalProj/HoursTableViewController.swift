@@ -69,6 +69,7 @@ class HoursTableViewController: UITableViewController {
         
         
         enableDisableSaveButton()
+        
         if officeHour.documentID == "" { // This is a new hour
             addBordersToEditableObjects()
             numberAttendingLabel.text = String(0)
